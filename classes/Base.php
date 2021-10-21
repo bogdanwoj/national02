@@ -29,20 +29,7 @@ abstract class Base
         return $this->id;
     }
 
-	/**
-     * @return static[]
-     */
-    public static function findBy($column, $columnValue){
-        $tableName = static::getTableName();
-        $sql = "SELECT * FROM $tableName WHERE $column = '$columnValue';";
-        $data = query($sql);
-        $objList=[];
-        foreach ($data as $item){
-            $objList[]=static::objFromArray($item);
-        }
-        return $objList;
-    }
-
+	
     /**
      * @return static
      */
