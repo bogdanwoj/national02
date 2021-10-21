@@ -29,7 +29,73 @@ abstract class Base
         return $this->id;
     }
 
+	/**
+     * @return static[]
+     */
+    public static function findBy($column, $columnValue){
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM $tableName WHERE $column = '$columnValue';";
+        $data = query($sql);
+        $objList=[];
+        foreach ($data as $item){
+            $objList[]=static::objFromArray($item);
+        }
+        return $objList;
+    }
 
+    /**
+     * @return static
+     */
+    public static function  findOneBy($column, $columnValue){
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM $tableName WHERE $column = '$columnValue' LIMIT 1;";
+        $result = query($sql);
+        if (isset($result[0])){
+            return static::objFromArray($result[0]);
+        } else {
+            return false;
+        }
+    }
+
+    private static function objFromArray($array){
+        $className = static::class;
+        $object = new $className();
+        $object->fromArray($array);
+        return $object;
+    }
+
+    /**
+     * @return static
+     */
+    public static function find($id){
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM $tableName WHERE id = '$id' LIMIT 1;";
+        $result = query($sql);
+        if (isset($result[0])){
+            return static::objFromArray($result[0]);
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
+     * @return static[]
+     */
+    public static function findAll(){
+        $tableName = static::getTableName();
+        global $mysql;
+        $sql = "SELECT * FROM $tableName;";
+        $query = mysqli_query($mysql,$sql);
+        $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        $objList=[];
+        foreach ($data as $item){
+            $objList[]=static::objFromArray($item);
+        }
+        return $objList;
+
+    }
 
     public function fromArray($data)
     {
