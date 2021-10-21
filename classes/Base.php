@@ -1,0 +1,111 @@
+<?php
+
+abstract class Base
+{
+    private $id;
+    /**
+     * @param $id
+     */
+    /**
+     * @param $id
+     */
+    public function __construct($id=null)
+    {
+        if ($id) {
+            $tableName = static::getTableName();
+            $sql = "SELECT * FROM $tableName WHERE id = '$id' LIMIT 1;";
+            $data = query($sql);
+            if (count($data)>0){
+                $this->fromArray($data[0]);
+            }
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    public function fromArray($data)
+    {
+        foreach ($data as $attrName=>$attrValue){
+            $this->$attrName = $attrValue;
+        }
+    }
+
+    private function insert(){
+        $tableName = $this->getTableName();
+        $data = get_object_vars($this);
+        unset($data['id']);
+        $columns = [];
+        $values = [];
+        foreach ($data as $key=>$value){
+            if (!is_null($value)) {
+                $columns[] = $key;
+                $values[] = $value;
+            }
+        }
+        $columnsStr = implode('`, `',$columns);
+        $valuesStr = implode("', '",$values);
+
+        $sql = "INSERT INTO $tableName (`$columnsStr`) VALUES ('$valuesStr');";
+
+        global $mysql;
+        $query = mysqli_query($mysql,$sql);
+
+        if ($query===false){
+            die('Error on:'.$sql);
+        }
+
+        $this->id = mysqli_insert_id($mysql);
+    }
+
+    public function save()
+    {
+        if ($this->id>0){
+            $this->update();
+        } else {
+            $this->insert();
+        }
+    }
+
+    public function delete(){
+        $id = $this->id;
+        $tableName = $this->getTableName();
+        $sql = "DELETE FROM $tableName WHERE  id=$id;";
+        return query($sql);
+    }
+
+    private function update(){
+        $id = $this->id;
+        $tableName = $this->getTableName();
+        $data = get_object_vars($this);
+        unset($data['id']);
+        $sets=[];
+        foreach ($data as $key=>$value){
+            if (!is_null($value)) {
+                $sets[] = "`$key`='$value'";
+            }
+        }
+        $setsStr = implode(', ',$sets);
+
+        $sql = "UPDATE $tableName SET $setsStr WHERE id=$id;";
+        global $mysql;
+        $query=mysqli_query($mysql,$sql);
+        if ($query===false){
+            die('Error on:'.$sql);
+        }
+    }
+
+    public static abstract function getTableName();
+
+
+    
+
+
+}
