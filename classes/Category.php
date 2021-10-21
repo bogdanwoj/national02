@@ -69,7 +69,18 @@ class Product extends Base
         return Image::findBy('productId', $this->getId());
     }
 
-    
+    public function getFirstImage()
+    {
+        $images =$this->getImages();
+
+        if (isset($images[0])){
+            return $images[0];
+        } else {
+            $image = new Image();
+            $image->file = 'no_image.png';
+            return $image;
+        }
+    }
 
     public function getExtraWarranties(){
 
@@ -114,18 +125,6 @@ class Product extends Base
         </div>';
 
         echo $productHtml;
-    }
-	public function getFirstImage()
-    {
-        $images =$this->getImages();
-
-        if (isset($images[0])){
-            return $images[0];
-        } else {
-            $image = new Image();
-            $image->file = 'no_image.png';
-            return $image;
-        }
     }
 
     /**
