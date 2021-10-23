@@ -1,4 +1,4 @@
 <?php
 include "functions.php";
-unset($_SESSION['user_id']);
+unset($_SESSION['userId']);
 header('Location: index.php');

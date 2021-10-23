@@ -8,9 +8,8 @@ $userData = query("SELECT * FROM users WHERE email='$email' AND password='$passw
 
 
 if (count($userData)>0) {
-    $_SESSION['user_id']=$userData[0]['id'];
+    $_SESSION['userId']=$userData[0]['id'];
     header('Location: index.php');
 } else {
-
     header('Location: login.php');
 }

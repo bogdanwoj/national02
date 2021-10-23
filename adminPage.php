@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>eMAG.ro - Libertate in fiecare zi</title>
+    <title>Blogu' National02</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -32,7 +32,7 @@
                 <div class="col-5"><h2>Admin panel</h2></div>
                 <div class="col-7 logo">
                     <a href="index.php">
-                        <img src="images/insertImage.png" alt="logo" title="blog" height="100px;">
+                        <img src="images/Black%20H%20Logo.png" alt="logo" title="blog" height="100">
                     </a>
                 </div>
             </div>
