@@ -1,6 +1,6 @@
 <?php
 include "parts\header.php";
-include "functions.php"; ?>
+?>
 
     <div class="row">
         <div class="col-12 mt-5 mb-2">
