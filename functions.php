@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 session_start();
 
@@ -27,8 +27,8 @@ function query($sql)
 
 
 function getAuthUser(){
-    if (isset($_SESSION['userId'])){
-        $user =  new User($_SESSION['userId']);
+    if (isset($_SESSION['user_id'])){
+        $user =  new User($_SESSION['user_id']);
         return $user;
     } else {
         return false;
@@ -48,7 +48,7 @@ function formatPrice($price){
     return "$intPart<sup>$floatPart</sup>";
 }
 
-/*function getCurrentCart(){
+function getCurrentCart(){
     if (isset($_SESSION['cartId'])){
         return new Cart($_SESSION['cartId']);
     } else {
@@ -59,5 +59,5 @@ function formatPrice($price){
         return $cart;
     }
 }
-*/
+
 $salt = 'dsakjashdkjkjisdf3244@#$@#$dssdf';
