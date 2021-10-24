@@ -105,4 +105,7 @@
         </div>
     </div>
 >>>>>>> beb0dd7ac17caec9d142e8cba5a2ac63c6b0ca54
+    <?php
+    include "parts/footer.php"
+    ?>
 </body>

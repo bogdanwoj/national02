@@ -15,3 +15,6 @@ $category = new Category($id);
         ?>
     </div>
 </div>
+<?php
+include "parts/footer.php"
+?>
