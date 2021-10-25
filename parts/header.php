@@ -24,14 +24,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <?php if (getAuthUser() && getAuthAdmin()): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="adminPage.php">Admin page</a>
-                            </li>
-                            <?php endif;?>
-                            </li>
+                            </li>                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categorii
