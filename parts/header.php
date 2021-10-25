@@ -68,7 +68,7 @@
                             </li>
                             <?php if (getAuthUser() && getAuthAdmin()): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../Shop/adminPanel.php">Admin Panel</a>
+                                    <a class="nav-link" href="../blog/adminPage.php">Admin Panel</a>
                                 </li>
                             <?php endif; ?>
                         </ul>
