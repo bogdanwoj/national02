@@ -9,7 +9,6 @@
                         <label for="name">Nume categorie:</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Adauga categorie">
                     </div>
-
                     <button type="submit" class="btn btn-primary">Adauga categorie</button>
                 </form>
             </div>

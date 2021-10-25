@@ -7,7 +7,8 @@ include "parts/header.php";
                  <h2>Cele mai noi stiri</h2>
             </div>
         </div>
-
+    </div>
+    <div class="container">
 <?php
     $newArticleIds = query('SELECT id FROM articles ORDER BY id DESC LIMIT 10;');
     foreach ($newArticleIds as $newArticleId){
@@ -21,4 +22,3 @@ include "parts/header.php";
 <?php
     include "parts/footer.php"
 ?>
-

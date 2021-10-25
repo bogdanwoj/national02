@@ -25,7 +25,14 @@
                                     <h4>
                                         <?php
                                         $date = $article->date;
-                                        echo $date;
+                                        $timestamp = strtotime ($date);
+                                        $newDate = date('d', $timestamp);
+                                        echo $newDate;
+                                        ?>
+                                        <br/>
+                                        <?php
+                                        $newDate = date('M', $timestamp);
+                                        echo $newDate;
                                         ?>
                                     </h4>
                                 </div>

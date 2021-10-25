@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="2fe294e0-2f0c-4fc3-a92e-9ce606affbbf" name="national02" url="http://45.15.23.59/national02/bogdanw/blog">
-        <fileTransfer host="45.15.23.59" port="22" rootFolder="/var/www/html/national02/bogdanw/blog" accessType="SFTP">
+      <webServer id="2fe294e0-2f0c-4fc3-a92e-9ce606affbbf" name="national02" url="http://45.15.23.59/national02/bogdanw/national02">
+        <fileTransfer host="45.15.23.59" port="22" rootFolder="/var/www/html/national02/bogdanw/national02" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
