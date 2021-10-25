@@ -61,7 +61,12 @@
                 <ul class="list-group">
                     <?php $categories = Category::findAll(); ?>
                     <?php foreach ($categories as $categoryObj): ?>
-                       <li class="list-group-item"> <a class="btn btn-primary" href="category.php?id=<?php echo $categoryObj->getId(); ?>"><?php echo $categoryObj->name ?></a></li>
+                       <li class="list-group-item">
+                           <a class="btn btn-primary" href="category.php?id=<?php echo $categoryObj->getId(); ?>">
+                               <?php echo $categoryObj->name ?>
+                               <span class="badge badge-light"><?php echo count($categoryObj->getArticles());?></span>
+                           </a>
+                       </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
