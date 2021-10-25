@@ -31,7 +31,7 @@
                                         ?>
                                         <br/>
                                         <?php
-                                        $newDate = date('M', $timestamp);
+                                        $newDate = date('F Y', $timestamp);
                                         echo $newDate;
                                         ?>
                                     </h4>
