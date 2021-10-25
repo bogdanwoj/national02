@@ -57,7 +57,13 @@
                 </div>
             </div>
             <div class="col-3">
-                dasdasdasdasdasdasda
+                <h2>Categorii</h2>
+                <ul class="list-group">
+                    <?php $categories = Category::findAll(); ?>
+                    <?php foreach ($categories as $categoryObj): ?>
+                       <li class="list-group-item"> <a class="btn btn-primary" href="category.php?id=<?php echo $categoryObj->getId(); ?>"><?php echo $categoryObj->name ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>
