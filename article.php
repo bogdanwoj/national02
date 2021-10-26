@@ -62,7 +62,7 @@
                             <h4>Cele mai noi comentarii</h4>
                         </div>
                         <?php
-                            $newCommentsIds = query('SELECT id FROM comments ORDER BY id DESC LIMIT 10;');
+                            $newCommentsIds = query('SELECT id FROM comments WHERE articleId = '.$id.'  ORDER BY id DESC LIMIT 10;');
                             foreach ($newCommentsIds as $newCommentsId){
                                 $comment = new Comment($newCommentsId['id']);
                                 $comment->cardComment();
