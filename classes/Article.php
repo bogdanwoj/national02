@@ -46,7 +46,7 @@ class Article extends Base
 
     public function card()
     {
-        $articleHtml = '<div class="col-10">
+        $articleHtml = '<div class="col-10 mb-4">
                                 <div class="card" style="width: 650px;">
                                 <a href="article.php?id='.$this->getId().'"><img class="card-img-top" src="images/'.$this->getFirstImage()->file.'" alt="'.$this->name.'"></a>
                                     <div class="card-body">
@@ -84,5 +84,15 @@ class Article extends Base
     {
         return 'articles';
     }
+
+    public function cardCarousel ()
+    {
+        $carouselHtml = ' <div>
+                           <a href="category.php?id='.$this->getId().'"> <img class="d-block w-100" src="images/'.$this->getFirstImage()->file.'" alt="slide"> </a>
+                       </div>';
+        echo $carouselHtml;
+    }
+
+
 }
 
