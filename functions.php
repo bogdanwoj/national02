@@ -7,6 +7,7 @@ include "classes/Article.php";
 include "classes/Category.php";
 include "classes/Image.php";
 include "classes/User.php";
+include "classes/Comment.php";
 
 $mysql = mysqli_connect('localhost','root','Sco@l@it123','national-02-blog');
 
@@ -27,8 +28,8 @@ function query($sql)
 
 
 function getAuthUser(){
-    if (isset($_SESSION['user_id'])){
-        $user =  new User($_SESSION['user_id']);
+    if (isset($_SESSION['userId'])){
+        $user =  new User($_SESSION['userId']);
         return $user;
     } else {
         return false;
