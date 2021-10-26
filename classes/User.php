@@ -18,7 +18,7 @@ class User extends Base
         return 'users';
     }
 
-    public function getUsername(){
+    public function getUserName(){
         return $this->username;
     }
 }

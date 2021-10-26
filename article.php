@@ -1,7 +1,8 @@
 
 <?php
     include "parts/header.php";
-    $article = new Article(1);
+    $id = $_GET['id'];
+    $article = new Article($id);
 ?>;
 <html>
 <head>
@@ -37,10 +38,36 @@
                                     </h4>
                                 </div>
                             </div>
-                            <?php
-                                $article->card();
-                            ?>
+                            <div class="col-10">
+                                <?php
+                                    $article->card();
+                                ?>
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-12 mt-5">
+                        <?php if (getAuthUser()): ?>
+                            <form method="post" action="processInsertComment.php" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="text">Adauga comentariu:</label>
+                                    <textarea  name="comment" class="form-control" id="<?php echo $id; ?>" placeholder="Adauga comentariu"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Comenteaza</button>
+                            </form>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mt-5 mb-2">
+                            <h4>Cele mai noi comentarii</h4>
+                        </div>
+                        <?php
+                            $newCommentsIds = query('SELECT id FROM comments ORDER BY id DESC LIMIT 10;');
+                            foreach ($newCommentsIds as $newCommentsId){
+                                $comment = new Comment($newCommentsId['id']);
+                                $comment->cardComment();
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="row">
