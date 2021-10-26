@@ -51,6 +51,7 @@
                                 <div class="form-group">
                                     <label for="text">Adauga comentariu:</label>
                                     <textarea  name="comment" class="form-control" id="<?php echo $id; ?>" placeholder="Adauga comentariu"></textarea>
+                                    <input type="hidden" name="articleId" id="articleId" value="<?php echo $id; ?>" />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Comenteaza</button>
                             </form>
@@ -87,11 +88,11 @@
                 <h2>Categorii</h2>
                 <ul class="list-group">
                     <?php $categories = Category::findAll(); ?>
-                    <?php foreach ($categories as $categoryObj): ?>
+                    <?php foreach ($categories as $category): ?>
                        <li class="list-group-item">
-                           <a class="btn btn-primary" href="category.php?id=<?php echo $categoryObj->getId(); ?>">
-                               <?php echo $categoryObj->name ?>
-                               <span class="badge badge-light"><?php echo count($categoryObj->getArticles());?></span>
+                           <a class="btn btn-primary" href="category.php?id=<?php echo $category->getId(); ?>">
+                               <?php echo $category->name ?>
+                               <span class="badge badge-light"><?php echo count($category->getArticles());?></span>
                            </a>
                        </li>
                     <?php endforeach; ?>
