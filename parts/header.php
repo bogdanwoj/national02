@@ -34,7 +34,10 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <?php $categories = Category::findAll(); ?>
                                             <?php foreach ($categories as $categoryObj): ?>
-                                                <a class="dropdown-item" href="category.php?id=<?php echo $categoryObj->getId(); ?>"><?php echo $categoryObj->name ?></a>
+                                                <a class="dropdown-item" href="category.php?id=<?php echo $categoryObj->getId(); ?>">
+                                                    <?php echo $categoryObj->name ?><span class="badge badge-secondary">
+                                                        <?php echo count($categoryObj->getArticles());?></span>
+                                                </a>
                                             <?php endforeach; ?>
                                         </div>
                                     </li>
@@ -78,7 +81,7 @@
                                </li>
                                <?php if (getAuthUser() && getAuthAdmin()): ?>
                                    <li class="nav-item">
-                                       <a class="nav-link" href="../blog/adminPage.php">Admin Panel</a>
+                                       <a class="nav-link" href="adminPage.php">Admin Panel</a>
                                    </li>
                                <?php endif; ?>
                            </ul>

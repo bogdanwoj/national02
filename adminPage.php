@@ -32,7 +32,7 @@
                 <div class="col-5"><h2>Admin panel</h2></div>
                 <div class="col-7 logo">
                     <a href="index.php">
-                        <img src="images/Black%20H%20Logo.png" alt="logo" title="blog" height="100">
+                        <img src="images/Black%20H%20Logo.png" alt="logo" title="blog" height="200">
                     </a>
                 </div>
             </div>
