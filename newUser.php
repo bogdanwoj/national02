@@ -28,6 +28,6 @@
                     <?php endif; ?>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                <p>Ai deja un cont? <a href="login.php">Login</a></p>
             </div>
         </div>
-

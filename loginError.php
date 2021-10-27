@@ -7,6 +7,7 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
+                    <p class="text-danger">Email/parola incorecta, te rugam sa reincerci!</p>
                     <h3 class="card-title">Login</h3>
                     <form action="processLogin.php" method="post">
                         <div class="form-group">
@@ -19,7 +20,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                    <p>Nu ai cont? <a href="newUser.php">Creeaza cont nou</a></p>
                 </div>
             </div>
         </div>

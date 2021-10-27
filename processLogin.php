@@ -11,5 +11,5 @@ if (count($userData)>0) {
     $_SESSION['userId']=$userData[0]['id'];
     header('Location: index.php');
 } else {
-    header('Location: login.php');
+    header('Location: loginError.php');
 }
