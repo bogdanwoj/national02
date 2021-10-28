@@ -9,7 +9,7 @@ include "classes/Image.php";
 include "classes/User.php";
 include "classes/Comment.php";
 
-$mysql = mysqli_connect('localhost','root','Sco@l@it123','national-02-blog');
+include "dbConnection.php";
 
 function query($sql)
 {
