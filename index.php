@@ -31,8 +31,7 @@ include "parts/header.php";
                    Despre National02
                </h4>
                <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non vestibulum eros, eget pretium massa.
-                   Aliquam molestie mi ac arcu consequat fermentum.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                   rient montes, nascetur ridiculus mus.
                    Phasellus nec pretium felis. Phasellus rutrum scelerisque eros non rutrum. Fusce sit amet turpis augue <a href="contact.php">aici.</a>
                </p>
            </div>
