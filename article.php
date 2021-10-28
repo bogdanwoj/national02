@@ -42,6 +42,7 @@
                                 <?php
                                     $article->card();
                                 ?>
+                                <a class="btn btn-primary" target="_blank" href="articlePdf.php?id=<?php echo $article->getId(); ?>">Get PDF Article</a>
                             </div>
                         </div>
                     </div>
