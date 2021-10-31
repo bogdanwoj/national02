@@ -1,8 +1,8 @@
 <?php
 include "functions.php";
 
-$categoryId = new Category();
-$categoryId->fromArray($_POST);
-$categoryId->save();
+$category = new Category();
+$category->fromArray($_POST);
+$category->save();
 
 header('Location: index.php');
