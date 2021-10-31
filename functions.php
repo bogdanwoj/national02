@@ -7,6 +7,7 @@ include "classes/Category.php";
 include "classes/Image.php";
 include "classes/User.php";
 include "classes/Comment.php";
+include "classes/Subscriber.php";
 
 include "dbConnection.php";
 

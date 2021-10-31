@@ -34,7 +34,7 @@ include "parts/header.php";
                    rient montes, nascetur ridiculus mus.
                    Phasellus nec pretium felis. Phasellus rutrum scelerisque eros non rutrum. Fusce sit amet turpis augue <a href="contact.php">aici.</a>
                </p>
-               <form>
+               <form method="post" action="processSubscribe.php">
                    <input type="email" name="email" >
                    <button class="btn btn-primary" type="submit">Subscribe</button>
                </form>
