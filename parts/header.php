@@ -44,6 +44,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="contact.php">Contact</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="product.php">Merch</a>
+                                    </li>
                                 </ul>
                                 <form class="d-flex mt-2" method="get" action="search.php">
                                     <input class="form-control me-2" type="search" placeholder="Cauta" aria-label="search" name="search">
