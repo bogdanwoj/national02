@@ -8,8 +8,11 @@ include "parts/header.php"
         </div>
         <div class="col-12">
             <?php
-                $product = new Product();
-                $product->card();
+            $newProductIds = query('SELECT id FROM products ORDER BY id DESC LIMIT 4;');
+            foreach ($newProductIds as $newProductId){
+                $product = new Product($newProductId['id']);
+                $product->productCard();
+            }
             ?>
         </div>
     </div>
