@@ -9,6 +9,12 @@
                 <div class="card-body">
                     <h3 class="card-title">Login</h3>
                     <form action="processLogin.php" method="post">
+                        <?php
+                        if(isset($_SESSION["error"])){
+                            $error = $_SESSION["error"];
+                            echo "<p class=\"text-danger\">Email/Parola incorecta</p>";
+                        }
+                        ?>
                         <div class="form-group">
                             <label for="exampleInputEmail1"><h5>Email</h5></label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -18,6 +24,7 @@
                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
+
                     </form>
                     <p>Nu ai cont? <a href="newUser.php">Creeaza cont nou</a></p>
                 </div>
@@ -26,3 +33,7 @@
 
     </div>
 </div>
+
+<?php
+unset($_SESSION["error"]);
+?>
