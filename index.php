@@ -41,7 +41,7 @@ include "parts/header.php";
            </div>
            <div>
                <h4>Tricou personalizat: </h4>
-               <?php include "textImage.php" ?>
+               <img src="textImage.php">
            </div>
        </div>
     </div>
