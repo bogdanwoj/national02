@@ -14,6 +14,13 @@ include "classes/ProductImage.php";
 
 include "dbConnection.php";
 
+require 'vendor/autoload.php';
+$loader = new \Twig\Loader\FilesystemLoader('views');
+$twig = new \Twig\Environment($loader, [
+    'cache' => 'cache/twig_cache',
+    'debug' => true,
+]);
+
 function query($sql)
 {
     global $mysql;
@@ -39,10 +46,7 @@ function getAuthUser(){
     }
 }
 
-function getAuthAdmin(){
-    $admin = getAuthUser()->role == 'admin';
-    return $admin;
-}
+
 
 function formatPrice($price){
     $intPart = intval($price);

@@ -1,0 +1,52 @@
+{% extends 'sidebarLayout.html.twig' %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-2 text-right">
+                    <div>
+                        <h4>
+                            {{ article.date|date("d") }}
+                            <br/>
+                            {{ article.date|date("F Y") }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-10">
+                    {% include 'article/card.html.twig' %}
+                    <a class="btn btn-primary" target="_blank" href="articlePdf.php?id={{ article.id }}">Get PDF Article</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            {% if user %}
+            <form method="post" action="processInsertComment.php" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="text">Adauga comentariu:</label>
+                    <textarea  name="comment" class="form-control" id="{{ article.id }}" placeholder="Adauga comentariu"></textarea>
+                    <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
+                </div>
+                <button type="submit" class="btn btn-primary">Comenteaza</button>
+            </form>
+            {% endif %}
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-5 mb-2">
+                <h4>Cele mai noi comentarii</h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-5 mb-2">
+            <h3>Stiri similare</h3>
+        </div>
+        {% for article in article.getCategory().getArticles() %}
+            {% include 'article/cardSample.html.twig' %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

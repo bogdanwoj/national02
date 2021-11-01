@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <a href="article.php?id={{ article.getId() }}"><img class="card-img-top" src="images/{{ article.getFirstImage().file }}" alt="{{ article.name }}"></a>
+            <div class="card-body">
+                <h2 class="card-title">{{ article.title }}</h2>
+                <p>Written by <strong>{{ article.getUserName().username }}</strong>,
+                    Posted in <strong>{{ article.getCategory().getName() }}</strong>
+                </p>
+                <p class="card-text">{{ article.text }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{% extends 'homeLayout.html.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-12 mt-5 mb-2">
+            <h2>Cele mai noi stiri</h2>
+        </div>
+    </div>
+    {% for article in articles %}
+        {{ include('article/card.html.twig') }}
+    {% endfor %}
+{% endblock %}
+

@@ -21,4 +21,8 @@ class User extends Base
     public function getUserName(){
         return $this->username;
     }
+
+    public function isAdmin(){
+        return $this->role == 'admin';
+    }
 }

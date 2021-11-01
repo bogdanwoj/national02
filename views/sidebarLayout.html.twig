@@ -1,0 +1,17 @@
+<html>
+{{ include('parts/head.html.twig') }}
+    <body>
+        {{ include('parts/header.html.twig') }}
+        <div class="container">
+            <div class="row">
+                <div class="justify-content-start col-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+                {{ include('parts/sidebar.html.twig') }}
+            </div>
+        </div>
+        {{ include('parts/footer.html.twig') }}
+    </body>
+</html>
+

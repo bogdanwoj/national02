@@ -1,0 +1,11 @@
+<div class="col-4 text-nowrap" >
+<div class="card" style="width: 250px;">
+    <a href="article.php?id={{ article.id }}"><img class="card-img-top" src="images/{{ article.getFirstImage().file }}" alt="{{ article.name }}"></a>
+    <div class="card-body">
+        <h3 class="card-title">{{ article.title }}</h3>
+        <p>Written by <strong>{{ article.getUserName().username }}</strong>,
+            Posted in <strong>{{ article.getCategory().name }}</strong>
+        </p>
+    </div>
+</div>
+</div>
