@@ -39,6 +39,10 @@ include "parts/header.php";
                    <button class="btn btn-primary" type="submit">Subscribe</button>
                </form>
            </div>
+           <div>
+               <h4>Tricou personalizat: </h4>
+               <?php include "textImage.php" ?>
+           </div>
        </div>
     </div>
 
