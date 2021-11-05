@@ -31,13 +31,16 @@
             </form>
             {% endif %}
         </div>
-
-        <div class="row">
-            <div class="col-12 mt-5 mb-2">
-                <h4>Cele mai noi comentarii</h4>
+        {% if comments|length > 0 %}
+            <div class="row">
+                <div class="col-12 mt-5 mb-2">
+                    <h4>Cele mai noi comentarii</h4>
+                </div>
+                {% for comment in comments %}
+                    {% include 'article/cardComment.html.twig' %}
+                {% endfor %}
             </div>
-
-        </div>
+        {% endif %}
     </div>
     <div class="row">
         <div class="col-12 mt-5 mb-2">

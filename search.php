@@ -16,16 +16,8 @@ include "parts/header.php";
     foreach ($searchedArticles as $searchedArticle){
         $articles[] = new Article($searchedArticle['id']);
     }
-?>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 mt-5">
-                <h2>Cauta </h2>
-            </div>
-            <?php
-            foreach ($articles as $article){
-                $article->cardSample();
-            }
-            ?>
-        </div>
-    </div>
+
+    $template = $twig->load('search.html.twig');
+    echo $template->render(['articles'=>$articles]);
+
+
