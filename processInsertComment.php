@@ -10,4 +10,4 @@ $comment->articleId = $_POST['articleId'];
 
 $comment->save();
 
-header('Location: index.php');
+header("Location: article.php?id={$_POST['articleId']}");
