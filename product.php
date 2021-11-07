@@ -1,6 +1,7 @@
 <?php
 include "parts/header.php";
 
+$user = getAuthUser();
 $newProductIds = query('SELECT id FROM products ORDER BY id DESC LIMIT 4;');
 $products = [];
 foreach ($newProductIds as $newProductId) {
@@ -8,4 +9,4 @@ foreach ($newProductIds as $newProductId) {
 
 }
 $template = $twig->load('product.html.twig');
-echo $template->render(['product'=>$products]);
+echo $template->render(['product'=>$products, 'user'=>$user]);

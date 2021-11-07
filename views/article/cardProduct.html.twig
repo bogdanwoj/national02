@@ -5,9 +5,9 @@
                                                                src="images/{{ product.getFirstImage().file }}"
                                                                alt="{{ product.name }}" style="height: 260px;"></a>
             <div class="card-body">
-                <h5 class="card-title">{{ product.getName }}</h5>
+                <h5 class="card-title">{{ product.getName() }}</h5>
                 <h5>{{ product.getPrice }} Lei</h5>
-                <a href="#?id={{ product.getId }}" class="btn btn-primary mt-2">Adauga in cos</a>';
+                <a href="#?id={{ product.getId }}" class="btn btn-primary mt-2">Adauga in cos</a>
             </div>
         </div>
     </div>

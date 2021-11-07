@@ -7,7 +7,5 @@
             </div>
         </div>
     </div>
-    {% for product in products %}
-        {{ include('article/cardProduct.html.twig') }}
-    {% endfor %}
+        {% include 'article/cardProduct.html.twig' %}
 {% endblock %}
