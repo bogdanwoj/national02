@@ -9,4 +9,4 @@ foreach ($newProductIds as $newProductId) {
 
 }
 $template = $twig->load('product.html.twig');
-echo $template->render(['product'=>$products, 'user'=>$user]);
+echo $template->render(['product'=>$product, 'user'=>$user]);
