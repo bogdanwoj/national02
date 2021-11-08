@@ -1,6 +1,9 @@
 <html>
 {{ include('parts/head.html.twig') }}
 <body>
+{%  if not user or not user.isAdmin() %}
+    {% do redirect('index.php') %}
+{% endif %}
 <div class="container">
     <div class="row">
         <div class="justify-content-start col-12">
