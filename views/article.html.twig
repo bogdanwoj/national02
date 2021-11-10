@@ -22,12 +22,14 @@
         <div class="col-12 mt-5">
             {% if user %}
             <form method="post" action="processInsertComment.php" enctype="multipart/form-data">
+
                 <div class="form-group">
-                    <label for="text">Adauga comentariu:</label>
+                    <div class="text-danger" id="error"></div>
+                    <label for="text">Adauga comentariu (peste 5 caractere)</label>
                     <textarea  name="comment" class="form-control" id="{{ article.id }}" placeholder="Adauga comentariu"></textarea>
                     <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
                 </div>
-                <button type="submit" class="btn btn-primary">Comenteaza</button>
+                <button type="submit" class="d-none" id="submitComment">Comenteaza</button>
 
                 <a class="btn btn-danger" id="PreviewHTML" >Preview</a>
                 <div class="modal fade" id="PreviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,11 +38,12 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Preview comment</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+
                             </div>
                             <div class="modal-body" id="AppendPreview">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -72,7 +75,16 @@
         $(document).ready(function(){
             $(document).on('click','#PreviewHTML',function(){
                 var html = $('#{{ article.id }}').val();
-
+                if (html.length < 3) {
+                    $("#error").text("Textul are prea putine caractere");
+                    $("#submitComment").addClass("d-none");
+                }
+                else {
+                    $("#submitComment").removeClass("d-none");
+                    $("#submitComment").addClass("btn btn-primary");
+                    $("#error").removeClass("text-danger");
+                    $("#error").addClass("d-none");
+                }
                 $('#AppendPreview').html(html);
                 $('#PreviewModal').modal('show');
             })
