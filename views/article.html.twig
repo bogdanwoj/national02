@@ -28,6 +28,24 @@
                     <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
                 </div>
                 <button type="submit" class="btn btn-primary">Comenteaza</button>
+
+                <a class="btn btn-danger" id="PreviewHTML" >Preview</a>
+                <div class="modal fade" id="PreviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Preview comment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="AppendPreview">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </form>
             {% endif %}
         </div>
@@ -50,6 +68,15 @@
             {% include 'article/cardSample.html.twig' %}
         {% endfor %}
     </div>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click','#PreviewHTML',function(){
+                var html = $('#{{ article.id }}').val();
 
+                $('#AppendPreview').html(html);
+                $('#PreviewModal').modal('show');
+            })
+        })
+    </script>
 {% endblock %}
 
