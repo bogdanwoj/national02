@@ -52,6 +52,32 @@
             </form>
             {% endif %}
         </div>
+
+        {# Second method Preview Comment #}
+        <div class="col-12 mt-5" id="previewForm">
+            {% if user %}
+                <form method="post" action="processInsertComment.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="text">Adauga comentariu:</label>
+                        <textarea  name="comment" class="form-control textAreaForm" id="comment" placeholder="Adauga comentariu"></textarea>
+                        <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Comenteaza</button>
+                </form>
+            {% endif %}
+        </div>
+        <div id="previewComment" class="col-10 d-none">
+            <h4>
+                Preview comment
+            </h4>
+            <div class="card col-12 mb-5">
+                <h4 class="card-title"></h4>
+                <div class="card-body">
+                    <p id="commentShow" class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
         {% if comments|length > 0 %}
             <div class="row">
                 <div class="col-12 mt-5 mb-2">
@@ -88,6 +114,24 @@
                 $('#AppendPreview').html(html);
                 $('#PreviewModal').modal('show');
             })
+        })
+
+        {# Second method Preview Comment #}
+        $(document).ready(function() {
+            var commentText = $('#commentShow');
+            $('#previewForm textarea').bind('blur keyup',function() {
+                //comment
+                commentText.text($('#comment').val());
+                commentText.html($('#commentShow').html().replace(/\n/g,'<br />'));
+            });
+        });
+
+        $('#previewForm textarea').keyup(function() {
+            if ($('#comment').val().length == 0) {
+                $('#previewComment').hide();
+            } else {
+                $('#previewComment').removeClass('d-none');
+            }
         })
     </script>
 {% endblock %}
