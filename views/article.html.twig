@@ -54,29 +54,8 @@
         </div>
 
         {# Second method Preview Comment #}
-        <div class="col-12 mt-5" id="previewForm">
-            {% if user %}
-                <form method="post" action="processInsertComment.php" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="text">Adauga comentariu:</label>
-                        <textarea  name="comment" class="form-control textAreaForm" id="comment" placeholder="Adauga comentariu"></textarea>
-                        <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">Comenteaza</button>
-                </form>
-            {% endif %}
-        </div>
-        <div id="previewComment" class="col-10 d-none">
-            <h4>
-                Preview comment
-            </h4>
-            <div class="card col-12 mb-5">
-                <h4 class="card-title"></h4>
-                <div class="card-body">
-                    <p id="commentShow" class="card-text"></p>
-                </div>
-            </div>
-        </div>
+        {#   {% include'article/commentForm.html.twig' %}
+        {% include'article/previewComment.html.twig' %} #}
 
         {% if comments|length > 0 %}
             <div class="row">
@@ -116,23 +95,44 @@
             })
         })
 
-        {# Second method Preview Comment #}
-        $(document).ready(function() {
+        {# Test Preview Comment #}
+        {# $(document).ready(function() {
             var commentText = $('#commentShow');
-            $('#previewForm textarea').bind('blur keyup',function() {
+            $('#{{ article.id }}').bind('blur keyup',function() {
                 //comment
                 commentText.text($('#comment').val());
                 commentText.html($('#commentShow').html().replace(/\n/g,'<br />'));
             });
+            $('#{{ article.id }}').keyup(function() {
+                if ($('#comment').val().length == 0) {
+                    $('#previewComment').hide();
+                } else {
+                    $('#previewComment').removeClass('d-none');
+                }
+            })
+        });
+        #}
+
+
+        {# Second method Preview Comment #}
+         $(document).on('click','#previw', function() {
+            var commentText = $('#{{ article.id }}').val();
+            $('#previewComment').removeClass('d-none');
+            $('#commentShow').html(commentText);
+            $('#errorText').addClass('d-none');
         });
 
-        $('#previewForm textarea').keyup(function() {
-            if ($('#comment').val().length == 0) {
-                $('#previewComment').hide();
-            } else {
-                $('#previewComment').removeClass('d-none');
+        $('#form').submit(function(e) {
+            var commentText = $('#{{ article.id }}').val();
+            if ($.trim (commentText) === "" || $.trim (commentText).length < 3 || $.trim (commentText).length > 250) {
+                e.preventDefault();
+                $("#errorText").removeClass("d-none");
             }
-        })
+                else {
+                        $("#errorText").addClass("d-none");
+                }
+        });
+
     </script>
 {% endblock %}
 

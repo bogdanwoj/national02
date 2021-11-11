@@ -1,0 +1,14 @@
+<div class="col-12 mt-5">
+    {% if user %}
+        <form method="post" action="processInsertComment.php" enctype="multipart/form-data" id="form" name="form">
+            <div class="form-group">
+                <label for="text">Adauga comentariu:</label>
+                <p id="errorText" class="text-danger d-none">Comentariu necesita cel putin 3 caractere si cel mult 250.</p>
+                <textarea style="height: 80px"  name="comment" class="form-control textAreaForm" id="///{{ article.id }}" placeholder="Adauga comentariu"></textarea>
+                <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
+            </div>
+            <button type="submit" class="btn btn-primary" id="comments">Comenteaza</button>
+            <button type="button" class="btn btn-secondary" id="previw">Previw comment</button>
+        </form>
+    {% endif %}
+</div>
