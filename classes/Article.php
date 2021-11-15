@@ -1,4 +1,5 @@
 <?php
+namespace Classes;
 
 class Article extends Base
 {

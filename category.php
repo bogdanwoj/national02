@@ -1,5 +1,6 @@
 <?php
 include "parts/header.php";
+use Classes\Category;
 $id = intval($_GET['id']);
 $category = new Category($id);
 $articles =$category->getArticles();

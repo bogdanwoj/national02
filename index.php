@@ -1,13 +1,12 @@
 <?php
 include "functions.php";
 
-$newArticleIds = query('SELECT id FROM articles ORDER BY id DESC LIMIT 2;');
-$articles=[];
-foreach ($newArticleIds as $newArticleId){
-    $articles[] = new Article($newArticleId['id']);
-}
+use Classes\Category;
+
+$articles = $entityManager->getRepository(\Entities\Articles::class)->findBy([],['id'=>'DESC'],2);
+
 $article = $articles[0];
-$categories = Category::findAll();
+$categories = $entityManager->getRepository(\Entities\Categories::class)->findAll();
 $user = getAuthUser();
 
 $template = $twig->load('index.html.twig');

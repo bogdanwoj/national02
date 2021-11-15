@@ -2,15 +2,11 @@
 include "functions.php";
 
 $id = $_GET['id'];
-$article = new Article($id);
-$categories = Category::findAll();
+$article =  $entityManager->getRepository(\Entities\Articles::class)->find($id);
+$categories = $entityManager->getRepository(\Entities\Categories::class)->findAll();
 $user = getAuthUser();
 
-$newCommentsIds = query('SELECT id FROM comments WHERE articleId = '.$id.'  ORDER BY id DESC LIMIT 10;');
-$comments=[];
-foreach ($newCommentsIds as $newCommentsId){
-    $comments[] = new Comment($newCommentsId['id']);
-}
+$comments = $entityManager->getRepository(\Entities\Comments::class)->findBy(['articleId'=>$id],['id'=>'DESC'], 10);
 
 
 $template = $twig->load('article.html.twig');
