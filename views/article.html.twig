@@ -53,10 +53,6 @@
             {% endif %}
         </div>
 
-        {# Second method Preview Comment #}
-        {#   {% include'article/commentForm.html.twig' %}
-        {% include'article/previewComment.html.twig' %} #}
-
         {% if comments|length > 0 %}
             <div class="row">
                 <div class="col-12 mt-5 mb-2">
@@ -94,45 +90,6 @@
                 $('#PreviewModal').modal('show');
             })
         })
-
-        {# Test Preview Comment #}
-        {# $(document).ready(function() {
-            var commentText = $('#commentShow');
-            $('#{{ article.id }}').bind('blur keyup',function() {
-                //comment
-                commentText.text($('#comment').val());
-                commentText.html($('#commentShow').html().replace(/\n/g,'<br />'));
-            });
-            $('#{{ article.id }}').keyup(function() {
-                if ($('#comment').val().length == 0) {
-                    $('#previewComment').hide();
-                } else {
-                    $('#previewComment').removeClass('d-none');
-                }
-            })
-        });
-        #}
-
-
-        {# Second method Preview Comment #}
-         $(document).on('click','#previw', function() {
-            var commentText = $('#{{ article.id }}').val();
-            $('#previewComment').removeClass('d-none');
-            $('#commentShow').html(commentText);
-            $('#errorText').addClass('d-none');
-        });
-
-        $('#form').submit(function(e) {
-            var commentText = $('#{{ article.id }}').val();
-            if ($.trim (commentText) === "" || $.trim (commentText).length < 3 || $.trim (commentText).length > 250) {
-                e.preventDefault();
-                $("#errorText").removeClass("d-none");
-            }
-                else {
-                        $("#errorText").addClass("d-none");
-                }
-        });
-
     </script>
 {% endblock %}
 
