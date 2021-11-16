@@ -15,11 +15,32 @@ include "classes/ProductImage.php";
 include "dbConnection.php";
 
 require 'vendor/autoload.php';
+
+$debug = true;
+
+/* Twig bootstrap */
 $loader = new \Twig\Loader\FilesystemLoader('views');
 $twig = new \Twig\Environment($loader, [
     'cache' => 'cache/twig_cache',
-    'debug' => true,
+    'debug' => $debug,
 ]);
+
+/* Doctrine bootstrap */
+
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+
+$paths = array(__DIR__."/entities");
+$isDevMode = $debug;
+
+
+$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null,null, false);
+
+$conn = \Doctrine\DBAL\DriverManager::getConnection($dbParams);
+
+
+// obtaining the entity manager
+$entityManager = EntityManager::create($conn, $config);
 
 function query($sql)
 {
@@ -38,8 +59,9 @@ function query($sql)
 
 
 function getAuthUser(){
+    global $entityManager;
     if (isset($_SESSION['userId'])){
-        $user =  new User($_SESSION['userId']);
+        $user =  $entityManager->getRepository(\Entities\Users::class)->find($_SESSION['userId']);
         return $user;
     } else {
         return false;

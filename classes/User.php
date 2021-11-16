@@ -1,5 +1,5 @@
 <?php
-
+namespace Classes;
 
 class User extends Base
 {
