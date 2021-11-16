@@ -12,3 +12,4 @@ $user = getAuthUser();
 $template = $twig->load('index.html.twig');
 echo $template->render(['articles'=>$articles, 'article'=>$article, 'categories'=>$categories, 'user'=>$user]);
 
+
